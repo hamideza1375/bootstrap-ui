@@ -15,7 +15,8 @@ import { Init, Span } from './Components/Html'
 // import Modal from './ui/Modal'
 // import Switch from './ui/Switch'
 // import Swiper from './ui/Swiper'
-import Table from './ui/Table'
+// import Table from './ui/Table'
+import _ScrollSlider from './ui/ScrollSlider'
  
 import { states, context } from './utils/context/contexts'
 
@@ -40,7 +41,8 @@ const App = () => {
       {/* <Modal {...allState} /> */}
       {/* <Switch {...allState} /> */}
       {/* <Swiper {...allState} /> */}
-      <Table {...allState} />
+      {/* <Table {...allState} /> */}
+      <_ScrollSlider {...allState} />
     </NavigationContainer>
     </Span>
   )
