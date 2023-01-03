@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from "react";
-import { Animated, StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import { Animated, StyleSheet, View, Text, TouchableOpacity, Pressable } from "react-native";
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
-export default function App({ sethidden, hidden, onPress, style, header, body, color, bgcolor, icon, icon2, iconSize, fontSize, iconPress, icon2Press }) {
+export default function App({ sethidden, hidden, onPress, style, header, body, bodyRow, color, bgcolor, icon, icon2, iconSize, fontSize, iconPress, icon2Press }) {
 
   const ref = useRef()
 
@@ -13,8 +13,16 @@ export default function App({ sethidden, hidden, onPress, style, header, body, c
 
   return (
     <>
-      <View
-        onPressIn={onPress}
+      <Pressable
+      onPressIn={() => { sethidden(!hidden); setTimeout(() => { sethidden(!hidden) }, 1) }}
+      onPress={() => {
+        () => { sethidden(!hidden); setTimeout(() => { sethidden(!hidden) }, 2) };
+        setTimeout(() => {
+          ref.current && ref.current.setNativeProps({ style: { height: null } })
+        }, 100);
+
+      }}
+        // onPressIn={onPress}
         activeOpacity={1}
         style={[styles.headView,
         {
@@ -30,27 +38,24 @@ export default function App({ sethidden, hidden, onPress, style, header, body, c
         }
           , { borderRadius: 3 }, style]}>
         <Text
-          onPressIn={() => { sethidden(!hidden); setTimeout(() => { sethidden(!hidden) }, 1) }}
-          onPress={() => {
-            () => { sethidden(!hidden); setTimeout(() => { sethidden(!hidden) }, 2) };
-            setTimeout(() => {
-              ref.current && ref.current.setNativeProps({ style: { height: null } })
-            }, 100);
-            
-
-          }} style={[styles.headText, { color: color && color || 'white' }, { fontSize: fontSize ? fontSize : 17 }]}>{header}</Text>
+           style={[styles.headText, { color: color && color || 'white' }, { fontSize: fontSize ? fontSize : 17 }]}>{header}</Text>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: 105 }}>
           {icon2 && <Icon onPress={icon2Press} name={icon2} color={color && color || 'white'} size={iconSize ? iconSize : 24} style={styles.headText} />}
           {icon && <Icon onPress={iconPress} name={icon} color={color && color || 'white'} size={iconSize ? iconSize : 24} style={styles.headText} />}
         </View>
-      </View>
+      </Pressable>
       <Animated.View ref={ref} style={{ overflow: "hidden" }}>
         <TouchableOpacity
           activeOpacity={0.8}
           style={styles.subView}>
-          <Text style={styles.subText}>
-            {body}
-          </Text>
+          {
+            !bodyRow ?
+              <Text style={styles.subText}>
+                {body}
+              </Text>
+              :
+              bodyRow
+          }
         </TouchableOpacity>
       </Animated.View>
     </>

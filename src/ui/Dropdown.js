@@ -25,13 +25,13 @@ function _Dropdown() {
         // style={{  }}
 
         >
-          <Div style={{ flexDirection: 'row', justifyContent: 'space-around',  }} >
+          <Div style={{ flexDirection: 'row', justifyContent: 'space-around', }} >
             <Icon name={'image'} color="#ddd" size={25} style={{ padding: 7 }} />
             <Icon name={'image'} color="#ddd" size={25} style={{ padding: 7 }} />
             <Icon name={'image'} color="#ddd" size={25} style={{ padding: 7 }} />
             <A_icon name={'camera'} color="#ddd" size={25} style={{ padding: 7 }} />
           </Div>
-          <Div style={{ flexDirection: 'row', justifyContent: 'space-around',  }} >
+          <Div style={{ flexDirection: 'row', justifyContent: 'space-around', }} >
             <Icon name={'image'} color="#ddd" size={25} style={{ padding: 7 }} />
             <Icon name={'image'} color="#ddd" size={25} style={{ padding: 7 }} />
             <Icon name={'image'} color="#ddd" size={25} style={{ padding: 7 }} />

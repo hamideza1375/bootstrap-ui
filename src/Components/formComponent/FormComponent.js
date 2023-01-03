@@ -15,21 +15,22 @@ export const Textarea = React.forwardRef((props, ref) => {
 
 
 export const Input = React.forwardRef((props, ref) => {
-  const { pColor = '#777', dr = 'rtl', alignSelf, fontSize, p = 7, pt, pb, pl, pr, pv, ph, h = 50, w, m, mt, mb, ml, mr, mv, mh, color = '#222', bgcolor='#fff', border = [.3], flexGrow, flex, textAlign } = props;
+  const { fg, f, ta, dr = 'rtl', as, fs, p, pt, pb, pl, pr, pv, ph, h = 50, w, m, mt, mb, ml, mr, mv, mh, color = '#222', bgcolor = '#fff', border = [.3], pColor = '#777', } = props;
   return (
     <View
       style={[{
-        textAlign,
+        padding: p, paddingTop: pt, paddingBottom: pb, paddingLeft: pl, paddingRight: pr, paddingVertical: pv, paddingHorizontal: ph,
+        textAlign: ta,
         margin: m, marginTop: mt, marginBottom: mb, marginRight: mr, marginLeft: ml, marginHorizontal: mh, marginVertical: mv, color,
-        borderWidth: border[0], borderColor: border[1], fontSize, alignSelf, flexGrow, flex, height: h, width: w,
+        borderWidth: border[0], borderColor: border[1], fontSize: fs, alignSelf: as, flexGrow: fg, flex: f, height: h, width: w,
         flexDirection: dr === 'rtl' ? 'row' : 'row-reverse', position: 'relative',
         borderRadius: 5,
         backgroundColor: bgcolor,
       }, props.style]}
       ref={e => { if (e) { e.className = Array.isArray(props.class) ? (e.className + ' ' + props.class[0] + ' ' + props.class[1]) : (e.className + ' ' + props.class); }; ref && ref(e); }}>
-      <TextInput placeholderTextColor={pColor} onPress={props.onClick} autoCapitalize='none' autoCorrect={false} spellCheck={true} placeholder={props.p} {...props} style={[{ width:'84%',flexGrow:1, textAlign: "right", fontSize, padding: 8, paddingRight: 10, height: '100%', color: props.color ? props.color : '#222', }, props.className, props.textStyle]} />
-      {props.icon && <View onStartShouldSetResponder={props.iconPress} style={[{ width: '15%', maxWidth: 70, textAlign: 'center', borderColor: border[1], height: '100%', justifyContent: 'center', alignItems: 'center' }, props.textStyle, dr === 'rtl' ? { borderRightWidth: border[0] } : { borderLeftWidth: border[0] }]}><_icon style={ props.iconPress && Platform.OS === 'web' && {cursor:'pointer'}} name={props.icon} size={props.iconSize ? props.iconSize : 22} color={props.iconColor ? props.iconColor : "#333"} /></View>}
-      {props.m_icon && <View onStartShouldSetResponder={props.iconPress} style={[{ width: '15%', maxWidth: 70, textAlign: 'center', borderColor: border[1], height: '100%', justifyContent: 'center', alignItems: 'center' }, props.textStyle, dr === 'rtl' ? { borderRightWidth: border[0] } : { borderLeftWidth: border[0] }]}><Micon style={ props.iconPress && Platform.OS === 'web' && {cursor:'pointer'}} name={props.m_icon} size={props.iconSize ? props.iconSize : 22} color={props.iconColor ? props.iconColor : "#333"} /></View>}
+      <TextInput placeholderTextColor={pColor} onPress={props.onClick} autoCapitalize='none' autoCorrect={false} spellCheck={true} placeholder={props.p} {...props} style={[{ width: '84%', flexGrow: 1, textAlign: "right", fontSize: fs, padding: 8, paddingRight: 10, height: '100%', color: props.color ? props.color : '#222', }, props.className, props.textStyle]} />
+      {props.icon && <View onStartShouldSetResponder={props.iconPress} style={[{ width: '15%', maxWidth: 70, textAlign: 'center', borderColor: border[1], height: '100%', justifyContent: 'center', alignItems: 'center' }, props.textStyle, dr === 'rtl' ? { borderRightWidth: border[0] } : { borderLeftWidth: border[0] }]}><_icon style={props.iconPress && Platform.OS === 'web' && { cursor: 'pointer' }} name={props.icon} size={props.iconSize ? props.iconSize : 22} color={props.iconColor ? props.iconColor : "#333"} /></View>}
+      {props.m_icon && <View onStartShouldSetResponder={props.iconPress} style={[{ width: '15%', maxWidth: 70, textAlign: 'center', borderColor: border[1], height: '100%', justifyContent: 'center', alignItems: 'center' }, props.textStyle, dr === 'rtl' ? { borderRightWidth: border[0] } : { borderLeftWidth: border[0] }]}><Micon style={props.iconPress && Platform.OS === 'web' && { cursor: 'pointer' }} name={props.m_icon} size={props.iconSize ? props.iconSize : 22} color={props.iconColor ? props.iconColor : "#333"} /></View>}
     </View>);
 });
 

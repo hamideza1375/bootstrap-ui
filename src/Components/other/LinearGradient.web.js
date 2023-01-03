@@ -1,9 +1,9 @@
 import React from 'react';
 import { View } from 'react-native-web';
 
-export default function LinearGradient({children,colors=[],start={},style}) {
+export default function LinearGradient({children,colors=[], webStart={},style}) {
   return (
-    <View style={[{ backgroundImage: `linear-gradient( ${start.x}deg, ${colors} ) ` },style]}>
+    <View style={[{ backgroundImage: `linear-gradient( ${webStart.x}deg, ${colors} ) ` },style]}>
       {children}
     </View>
   );
