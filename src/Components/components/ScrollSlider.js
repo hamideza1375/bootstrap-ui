@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Platform, View } from 'react-native'
-import { ScrollHorizontal } from '../Html'
+import { ScrollHorizontal, Span } from '../Html'
 
 var count = 150,
   width,
@@ -41,7 +41,7 @@ function ScrollSlider(p) {
 
   return (
 
-    <span onMouseUp={() => { setTimeout(() => { das = [] }, 10) }} >
+    <View onMouseUp={() => { setTimeout(() => { das = [] }, 10) }} >
       <View
         onMoveShouldSetResponderCapture={(e) => {
           setscroll2(false)
@@ -67,11 +67,11 @@ function ScrollSlider(p) {
           onScroll={(e) => { setscroll(e.nativeEvent.contentOffset.x) }}
           dir='ltr' id={p.id}
 
-          style={[{ overflow: 'auto', height: p.h ? p.h : 150, width: p.width - 4, marginTop: 2, alignSelf: 'center', borderRadius: 5, }, p.style]} >
+          style={[{ height: p.h ? p.h : 150, width: p.width - 4, marginTop: 2, alignSelf: 'center', borderRadius: 5, flexWrap:'wrap' }, p.style]} >
           {p.children}
         </ScrollHorizontal>
       </View>
-    </span>
+    </View>
   )
 }
 

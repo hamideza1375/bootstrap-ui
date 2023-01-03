@@ -9,7 +9,7 @@ function _Card() {
         bgcolor={'red'}
         color={'silver'}
         border={[4, 'red']}
-        dr='rtl'
+        dr='ltr'
         imageStyle={{width:100}}
         header={'salam salam'}
         // headerRow={<Span>nduicjcu</Span>}

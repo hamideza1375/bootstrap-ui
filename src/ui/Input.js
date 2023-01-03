@@ -9,28 +9,28 @@ function _Input() {
     <Span style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} >
       <Input
         ref={e => e && e.setNativeProps({ style: { color: 'red' } })}
-        fg
-        f
-        ta
-        dr='rtl'
-        as
-        fs
-        p
-        pt
-        pb
-        pl
-        pr
-        pv
-        ph
-        h={50}
-        w
-        m
-        mt
-        mb
-        ml
-        mr
-        mv
-        mh
+        // fg
+        // f
+        // ta
+        // dr='rtl'
+        // as
+        // fs
+        // p
+        // pt
+        // pb
+        // pl
+        // pr
+        // pv
+        // ph
+        // h={50}
+        // w
+        // m
+        // mt
+        // mb
+        // ml
+        // mr
+        // mv
+        // mh
         bgcolor={'#fff'}
         border={[.3,'red']}
         placeholder="fullname"

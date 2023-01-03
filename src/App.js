@@ -1,7 +1,8 @@
 import { NavigationContainer } from '@react-navigation/native'
 import React from 'react'
 import { Init, Span } from './Components/Html'
-// import Slider from './ui/Slider'
+import Slider from './ui/Slider'
+// import _ScrollSlider from './ui/ScrollSlider'
 // import Button from './ui/Button'
 // import B_icon from './ui/B_icon'
 // import Badge from './ui/Badge'
@@ -16,18 +17,18 @@ import { Init, Span } from './Components/Html'
 // import Switch from './ui/Switch'
 // import Swiper from './ui/Swiper'
 // import Table from './ui/Table'
-import _ScrollSlider from './ui/ScrollSlider'
  
 import { states, context } from './utils/context/contexts'
 
 const App = () => {
   const allState = states()
   return (
-    <Span>
+    <Span f={1} >
 
     <NavigationContainer>
       <Init ref={(e) => allState.set$(e)} id={'s'} />
-      {/* <Slider {...allState} /> */}
+      <Slider {...allState} />
+      {/* <_ScrollSlider {...allState} /> */}
       {/* <Button {...allState} /> */}
       {/* <B_icon {...allState} /> */}
       {/* <Badge {...allState} /> */}
@@ -42,7 +43,6 @@ const App = () => {
       {/* <Switch {...allState} /> */}
       {/* <Swiper {...allState} /> */}
       {/* <Table {...allState} /> */}
-      <_ScrollSlider {...allState} />
     </NavigationContainer>
     </Span>
   )

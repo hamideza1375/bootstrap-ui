@@ -11,7 +11,7 @@ function App() {
           scale={2.3}
           androidScale={1}
           color={"red"}
-          time={900000}
+          time={8000}
           // pos={'absolute} 
           // left={}
           // right={}
