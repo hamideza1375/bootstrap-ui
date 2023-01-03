@@ -47,7 +47,7 @@ function ScrollSlider(p) {
           setscroll2(false)
 
           if (Platform.OS === 'web') {
-            console.log(das[0] - das[das.length - 1]);
+            console.log(scroll + das[0] - das[das.length - 1]);
             das.push(e.nativeEvent.pageX)
             p.$.id(p.id).scrollTo({ x: scroll + das[0] - das[das.length - 1], y: 0 })
             setscroll(scroll + das[0] - das[das.length - 1])
