@@ -1,6 +1,6 @@
 import React from "react";
-import { SafeAreaView, Text, TextInput, View } from "react-native";
-import Swiper from "./components/Swiper";
+import { Text, TextInput } from "react-native";
+import {Swiper} from "../Components/Html";
 
 
 

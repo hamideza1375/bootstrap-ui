@@ -13,7 +13,10 @@ import { Init, Span } from './Components/Html'
 // import Loading from './ui/Loading'
 // import MaskedView from './ui/MaskedView'
 // import Modal from './ui/Modal'
-import Switch from './ui/Switch'
+// import Switch from './ui/Switch'
+// import Swiper from './ui/Swiper'
+import Table from './ui/Table'
+ 
 import { states, context } from './utils/context/contexts'
 
 const App = () => {
@@ -35,7 +38,9 @@ const App = () => {
       {/* <Loading {...allState} /> */}
       {/* <MaskedView {...allState} /> */}
       {/* <Modal {...allState} /> */}
-      <Switch {...allState} />
+      {/* <Switch {...allState} /> */}
+      {/* <Swiper {...allState} /> */}
+      <Table {...allState} />
     </NavigationContainer>
     </Span>
   )
