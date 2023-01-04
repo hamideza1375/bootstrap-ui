@@ -19,9 +19,9 @@ function SearchInput({ array,Register,navigate, icon, src,  foodAsc, foodDesc, n
   const searcher = (textSearch) => {
     console.log(textSearch);
     const f = []
-    let fd1 = array.filter((f) => f.title.includes(textSearch))
+    let fd1 = array.filter((f) => f.title.toLowerCase().includes(textSearch))
     f.push(...fd1)
-    let fd2 = array.filter((f) => (f.title.includes(textSearch[0]) && f.title.includes(textSearch[1])) || (f.title.includes(textSearch[1]) && f.title.includes(textSearch[2])) || (f.title.includes(textSearch[2]) && f.title.includes(textSearch[3])) || (f.title.includes(textSearch[3]) && f.title.includes(textSearch[4])) || (f.title.includes(textSearch[4]) && f.title.includes(textSearch[5])) || (f.title.includes(textSearch[5]) && f.title.includes(textSearch[6])) || (f.title.includes(textSearch[6]) && f.title.includes(textSearch[7])) || (f.title.includes(textSearch[7]) && f.title.includes(textSearch[8])) || (f.title.includes(textSearch[8]) && f.title.includes(textSearch[9])) || (f.title.includes(textSearch[9]) && f.title.includes(textSearch[10])) || (f.title.includes(textSearch[10]) && f.title.includes(textSearch[11])))
+    let fd2 = array.filter((f) => (f.title.toLowerCase().includes(textSearch[0]) && f.title.toLowerCase().includes(textSearch[1])) || (f.title.toLowerCase().includes(textSearch[1]) && f.title.toLowerCase().includes(textSearch[2])) || (f.title.toLowerCase().includes(textSearch[2]) && f.title.toLowerCase().includes(textSearch[3])) || (f.title.toLowerCase().includes(textSearch[3]) && f.title.toLowerCase().includes(textSearch[4])) || (f.title.toLowerCase().includes(textSearch[4]) && f.title.toLowerCase().includes(textSearch[5])) || (f.title.toLowerCase().includes(textSearch[5]) && f.title.toLowerCase().includes(textSearch[6])) || (f.title.toLowerCase().includes(textSearch[6]) && f.title.toLowerCase().includes(textSearch[7])) || (f.title.toLowerCase().includes(textSearch[7]) && f.title.toLowerCase().includes(textSearch[8])) || (f.title.toLowerCase().includes(textSearch[8]) && f.title.toLowerCase().includes(textSearch[9])) || (f.title.toLowerCase().includes(textSearch[9]) && f.title.toLowerCase().includes(textSearch[10])) || (f.title.toLowerCase().includes(textSearch[10]) && f.title.toLowerCase().includes(textSearch[11])))
     for (let i in fd1) {
       for (let n in fd2) {
         if (fd1[i]._id !== fd2[n]._id) {
@@ -47,7 +47,7 @@ function SearchInput({ array,Register,navigate, icon, src,  foodAsc, foodDesc, n
       <Span style={[styles.containHead]}>
         {icon && <Icon size={26} style={styles.iconHome} name={icon} onPress={() => navigation.navigate(navigate)} />}
         {src && <Press onClick={() => navigation.navigate(navigate)} mr={10} ml={5} ><Img w={50} h={45} mt={3} br={4} src={src} /></Press>}
-        <Input w={'60%'} fg={1} icon="search" pColor={'#777'} border={[1, '#ccc']} autoCapitalize='none' autoCorrect={false} spellCheck={true} value={textSearch} onChangeText={text => {settextSearch(text);searcher(text)}} placeholder="جستجو"  mh={8} h={'85%'} mt={6} dr='rtl' />
+        <Input w={'60%'} fg={1} icon="search" pColor={'#777'} border={[1, '#ccc']} autoCapitalize='none' autoCorrect={false} spellCheck={true} value={textSearch} onChangeText={text => {settextSearch(text.toLowerCase());searcher(text.toLowerCase())}} placeholder="جستجو"  mh={8} h={'85%'} mt={6} dr='rtl' />
        { foodAsc && <Span style={styles.containAscDesc}>
           <Icon onPress={foodAsc} size={21} style={{ padding: 4 }} name="arrow-down" color='#555' />
           <Span ph={6}></Span>

@@ -4,10 +4,10 @@ import { SearchBar } from '../Components/Html'
 function SearchInput(p) {
 
   const [array] = useState([
-    { id: '1', title: 'title1' },
-    { id: '2', title: 'title2' },
-    { id: '3', title: 'title3' },
-    { id: '4', title: 'title4' }
+    { id: '1', title: 'TITLE1' },
+    { id: '2', title: 'TITLE2' },
+    { id: '3', title: 'TITLE3' },
+    { id: '4', title: 'TITLE4' }
   ])
 
   const [array2] = useState([
