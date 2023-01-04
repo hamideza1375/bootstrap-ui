@@ -8,7 +8,7 @@ function SearchInput({ Register,navigate, icon, src, searcher, foodAsc, foodDesc
       <Span style={[styles.containHead]}>
         {icon && <Icon size={26} style={styles.iconHome} name={icon} onPress={() => navigation.navigate(navigate)} />}
         {src && <Press onClick={() => navigation.navigate(navigate)} mr={10} ml={5} ><Img w={50} h={45} mt={3} br={4} src={src} /></Press>}
-        <Input w={'60%'} fg={1} icon="search" pColor={'#777'} border={[1, '#ccc']} autoCapitalize='none' autoCorrect={false} spellCheck={true} value={textSearch} onChangeText={text => searcher(text)} p="جستجو"  mh={8} h={'85%'} mt={6} dr='rtl' />
+        <Input w={'60%'} fg={1} icon="search" pColor={'#777'} border={[1, '#ccc']} autoCapitalize='none' autoCorrect={false} spellCheck={true} value={textSearch} onChangeText={text => searcher(text)} placeholder="جستجو"  mh={8} h={'85%'} mt={6} dr='rtl' />
        { foodAsc && <Span style={styles.containAscDesc}>
           <Icon onPress={foodAsc} size={21} style={{ padding: 4 }} name="arrow-down" color='#555' />
           <Span ph={6}></Span>

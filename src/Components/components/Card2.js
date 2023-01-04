@@ -8,8 +8,8 @@ const card2 = (p) => {
   return (
     <Span h={h?h:300} w={'90%'} as={'center'} br={7} mt={55} border={[1]} {...p} >
 
-      <Span h={'45%'}>
-        <Img style={{minHeight:'100%', borderTopRightRadius:7, borderTopLeftRadius:7}}  src={p.src} />
+      <Span h={'45%'} >
+        <Img style={{height:'100%', borderTopRightRadius:7, borderTopLeftRadius:7}}  src={p.src} />
       </Span>
 
       <Span h={'54%'} mt={8}>

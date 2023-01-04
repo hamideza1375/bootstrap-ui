@@ -22,6 +22,8 @@ import { Init, Span } from './Components/Html'
 import Form from './ui/Form'
  
 import { states, context } from './utils/context/contexts'
+import rtl from './utils/rtl'
+rtl()
 
 const App = () => {
   const allState = states()
