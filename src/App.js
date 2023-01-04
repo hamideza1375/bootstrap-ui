@@ -18,7 +18,8 @@ import { Init, Span } from './Components/Html'
 // import Table from './ui/Table'
 // import Card from './ui/Card'
 // import Card2 from './ui/Card2'
-import SearchBar from './ui/SearchBar'
+// import SearchBar from './ui/SearchBar'
+import Form from './ui/Form'
  
 import { states, context } from './utils/context/contexts'
 
@@ -46,7 +47,8 @@ const App = () => {
       {/* <Table {...allState} /> */}
       {/* <Card {...allState} /> */}
       {/* <Card2 {...allState} /> */}
-      <SearchBar {...allState} />
+      {/* <SearchBar {...allState} /> */}
+      <Form {...allState} />
     </NavigationContainer>
     </Span>
   )

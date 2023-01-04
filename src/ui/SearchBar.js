@@ -8,7 +8,7 @@ function SearchInput(p) {
       // icon='home'
       src={require('../assets/images/a1.jpg')}
       navigate={'Home'}
-      // foodAsc={()=>{}}
+      foodAsc={()=>{}}
       Register={()=>{}}
     />
   )

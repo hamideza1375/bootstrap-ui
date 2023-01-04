@@ -133,6 +133,14 @@
         return "لطفا از گالری یک عکس را انتخواب کنید"
       }
     }
+    if (propName === 'videoUrl') {
+      if (typeof target[propName] === 'object') {
+        return target[propName]
+      }
+      else {
+        return "لطفا از گالری یک ویدئو را انتخواب کنید"
+      }
+    }
     if (propName === 'info') {
       if (typeof target[propName] === 'string') {
         if (target[propName].length < 10) {

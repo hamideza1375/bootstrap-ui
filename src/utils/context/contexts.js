@@ -56,6 +56,7 @@ function State() {
   const [title, settitle] = useState('')
   const [price, setprice] = useState('')
   const [imageUrl, setImageUrl] = useState('')
+  const [videoUrl, setvideoUrl] = useState('')
   const [info, setinfo] = useState('')
   const [code, setcode] = useState('')
   const [rand, setRand] = useState(parseInt(Math.random() * 9000 + 1000));
@@ -118,6 +119,7 @@ function State() {
     code, setcode,
     info, setinfo,
     imageUrl, setImageUrl,
+    videoUrl, setvideoUrl,
     price, setprice,
     title, settitle,
     spacePrice, courseIdValidator, truncate,  localStorage, Alert, useEffect, useMemo, Keyboard, BackHandler, ToastAndroid, Dimensions,

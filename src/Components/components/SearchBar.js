@@ -4,7 +4,7 @@ import { Icon, Img, Input, Press, Span } from '../Html'
 
 function SearchInput({ Register,navigate, icon, src, searcher, foodAsc, foodDesc, navigation, textSearch }) {
   return (
-    <Span h={57} pt={2} w={'100%'} >
+    <Span h={57} pt={2} w={'100%'} as='center' style={{maxWidth:'99.9%'}} >
       <Span style={[styles.containHead]}>
         {icon && <Icon size={26} style={styles.iconHome} name={icon} onPress={() => navigation.navigate(navigate)} />}
         {src && <Press onClick={() => navigation.navigate(navigate)} mr={10} ml={5} ><Img w={50} h={45} mt={3} br={4} src={src} /></Press>}
@@ -15,8 +15,8 @@ function SearchInput({ Register,navigate, icon, src, searcher, foodAsc, foodDesc
           <Icon onPress={foodDesc} size={21} style={{ padding: 4 }} name="arrow-up" color='#555' />
         </Span>}
 
-        {Register && <Span style={styles.containAscDesc}>
-          <Span w={'100%'}h={40} br={5} mt={3} bgcolor="red"></Span>
+        {Register && <Span style={[styles.containAscDesc,{minWidth:100,maxWidth:130}]}>
+          <Span w={'100%'}h={40} br={5} mt={3} bgcolor="#fff" border={[1, 'silver']} jc='center' ai='center' scale={.9} >ورود | ثبت نام</Span>
         </Span>}
 
       </Span>
@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
     color: '#777',
   },
   containHead: {
-    paddingRight:7,
     flexDirection: 'row',
     width: '100%',
     height: '10%',
@@ -48,7 +47,7 @@ const styles = StyleSheet.create({
   containAscDesc: {
     width: '15%',
     minWidth: 65,
-    maxWidth: 200,
+    maxWidth: 150,
     justifyContent: 'space-around',
     alignItems: 'center',
     flexDirection: 'row',

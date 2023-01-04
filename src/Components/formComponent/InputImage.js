@@ -1,16 +1,16 @@
 import React from "react";
 import { Animated, Text, View } from "react-native";
-// import { launchImageLibrary } from "react-native-image-picker";
+import { launchImageLibrary } from "react-native-image-picker";
 import { Input } from "./FormComponent";
 import Swiper from '../components/Swiper'
 
-function InputImage({ imIconLeft,imIconRight,imageUrl,setImageUrl,_imageUrl,newObj,img,styles}) {
+function InputImage({ imIconLeft,imIconRight,imageUrl,setImageUrl,_imageUrl,newObj,img,styles, icon,p,mediaType='photo'}) {
    
     const pickImage = () => {
-      // launchImageLibrary({ mediaType: 'photo' }, (res) => {
-      //   if (!res.didCancel) setImageUrl({ name: res.assets[0].fileName, type: res.assets[0].type, uri: res.assets[0].uri })
-      //   else console.log('err');
-      // })
+      launchImageLibrary({ mediaType }, (res) => {
+        if (!res.didCancel) setImageUrl({ name: res.assets[0].fileName, type: res.assets[0].type, uri: res.assets[0].uri })
+        else console.log('err');
+      })
   }
 
   // const pickVideo = () => {
@@ -36,14 +36,14 @@ function InputImage({ imIconLeft,imIconRight,imageUrl,setImageUrl,_imageUrl,newO
             iconLeft={imIconLeft}
             iconRight={imIconRight}
           >
-            <Text style={[styles.textinput, { marginTop: 5 }]} >انتخاب عکس</Text>
+            <Text style={[styles.textinput, { marginTop: 5 }]} >{p}</Text>
             <Animated.View onTouchStart={pickImage} style={[styles.animatedBorder,
             _imageUrl && !img &&
             {borderWidth: 1.2, borderColor:'red'}]} >
               <Input
                 editable={false}
-                p=" انتخاب از گالری "
-                icon={'image'}
+                placeholder={p}
+                icon={icon}
                 value={imageUrl.name}
                 style={styles.input}
               />
