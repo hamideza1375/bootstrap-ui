@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native'
 import React from 'react'
 import { Init, Span } from './Components/Html'
-import Slider from './ui/Slider'
+// import Slider from './ui/Slider'
 // import _ScrollSlider from './ui/ScrollSlider'
 // import Button from './ui/Button'
 // import B_icon from './ui/B_icon'
@@ -17,7 +17,8 @@ import Slider from './ui/Slider'
 // import Swiper from './ui/Swiper'
 // import Table from './ui/Table'
 // import Card from './ui/Card'
-import Card2 from './ui/Card2'
+// import Card2 from './ui/Card2'
+import SearchBar from './ui/SearchBar'
  
 import { states, context } from './utils/context/contexts'
 
@@ -44,7 +45,8 @@ const App = () => {
       {/* <Swiper {...allState} /> */}
       {/* <Table {...allState} /> */}
       {/* <Card {...allState} /> */}
-      <Card2 {...allState} />
+      {/* <Card2 {...allState} /> */}
+      <SearchBar {...allState} />
     </NavigationContainer>
     </Span>
   )

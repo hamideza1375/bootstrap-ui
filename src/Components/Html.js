@@ -20,6 +20,7 @@ export { default as Switch } from './components/Switch'
 export { default as Table } from './components/Table'
 export { default as Slider } from './components/Slider'
 export { default as ScrollSlider } from './components/ScrollSlider'
+export { default as SearchBar } from './components/SearchBar'
 export { Textarea, Input, CheckBox } from './formComponent/FormComponent'
 import setStyleRef from './classToStyle/setClassToStyle';
 
