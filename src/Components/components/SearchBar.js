@@ -1,14 +1,53 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { StyleSheet } from 'react-native';
 import { Icon, Img, Input, Press, Span } from '../Html'
 
-function SearchInput({ Register,navigate, icon, src, searcher, foodAsc, foodDesc, navigation, textSearch }) {
+function SearchInput({ array,Register,navigate, icon, src,  foodAsc, foodDesc, navigation }) {
+  
+
+
+
+  const [getValueSearch, setgetValueSearch] = useState([])
+  const [textSearch, settextSearch] = useState('')
+
+
+  useEffect(() => {
+    console.log(getValueSearch);
+  }, [getValueSearch])
+
+
+  const searcher = (textSearch) => {
+    console.log(textSearch);
+    const f = []
+    let fd1 = array.filter((f) => f.title.includes(textSearch))
+    f.push(...fd1)
+    let fd2 = array.filter((f) => (f.title.includes(textSearch[0]) && f.title.includes(textSearch[1])) || (f.title.includes(textSearch[1]) && f.title.includes(textSearch[2])) || (f.title.includes(textSearch[2]) && f.title.includes(textSearch[3])) || (f.title.includes(textSearch[3]) && f.title.includes(textSearch[4])) || (f.title.includes(textSearch[4]) && f.title.includes(textSearch[5])) || (f.title.includes(textSearch[5]) && f.title.includes(textSearch[6])) || (f.title.includes(textSearch[6]) && f.title.includes(textSearch[7])) || (f.title.includes(textSearch[7]) && f.title.includes(textSearch[8])) || (f.title.includes(textSearch[8]) && f.title.includes(textSearch[9])) || (f.title.includes(textSearch[9]) && f.title.includes(textSearch[10])) || (f.title.includes(textSearch[10]) && f.title.includes(textSearch[11])))
+    for (let i in fd1) {
+      for (let n in fd2) {
+        if (fd1[i]._id !== fd2[n]._id) {
+          let find = f.find((f) => f._id === fd2[n]._id)
+          if (!find) { textSearch[1] && f.push(fd2[n]) }
+        }
+      }
+    }
+    for (let n in fd2) {
+      let find = f.find((f) => f._id === fd2[n]._id)
+      if (!find) { textSearch[1] && f.push(fd2[n]) }
+    }
+    setgetValueSearch(f)
+
+  }
+
+
+
+  
+  
   return (
     <Span h={57} pt={2} w={'100%'} as='center' style={{maxWidth:'99.9%'}} >
       <Span style={[styles.containHead]}>
         {icon && <Icon size={26} style={styles.iconHome} name={icon} onPress={() => navigation.navigate(navigate)} />}
         {src && <Press onClick={() => navigation.navigate(navigate)} mr={10} ml={5} ><Img w={50} h={45} mt={3} br={4} src={src} /></Press>}
-        <Input w={'60%'} fg={1} icon="search" pColor={'#777'} border={[1, '#ccc']} autoCapitalize='none' autoCorrect={false} spellCheck={true} value={textSearch} onChangeText={text => searcher(text)} placeholder="جستجو"  mh={8} h={'85%'} mt={6} dr='rtl' />
+        <Input w={'60%'} fg={1} icon="search" pColor={'#777'} border={[1, '#ccc']} autoCapitalize='none' autoCorrect={false} spellCheck={true} value={textSearch} onChangeText={text => {settextSearch(text);searcher(text)}} placeholder="جستجو"  mh={8} h={'85%'} mt={6} dr='rtl' />
        { foodAsc && <Span style={styles.containAscDesc}>
           <Icon onPress={foodAsc} size={21} style={{ padding: 4 }} name="arrow-down" color='#555' />
           <Span ph={6}></Span>
