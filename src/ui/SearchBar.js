@@ -3,32 +3,31 @@ import { SearchBar } from '../Components/Html'
 
 function SearchInput(p) {
 
-  const [array] = useState([
-    { id: '1', title: 'TITLE1' },
-    { id: '2', title: 'TITLE2' },
-    { id: '3', title: 'TITLE3' },
-    { id: '4', title: 'TITLE4' }
+  const [array, setarray] = useState([
+    { id: '1',price:100, title: 'TITLE1' },
+    { id: '2',price:300, title: 'TITLE2' },
+    { id: '3',price:1200, title: 'TITLE3' },
+    { id: '4',price:700, title: 'TITLE4' }
   ])
 
   const [array2] = useState([
-    { id: '1', title: 'title1am' },
-    { id: '2', title: 'sal2am' },
-    { id: '3', title: 'sal3am' },
-    { id: '4', title: 'sal4am' }
+    { id: '1',price:40, title: 'title1am' },
+    { id: '2',price:2100, title: 'sal2am' },
+    { id: '3',price:8100, title: 'sal3am' },
+    { id: '4',price:100, title: 'sal4am' }
   ])
  
-  // //! Asc
-  // //! Asc
+
 
   return (
     <SearchBar
-      icon='home'
+      // icon='home'
       // src={require('../assets/images/a1.jpg')}
-      // foodAsc={()=>{}}
-      navigate={'Home'}
-      Register={() => { }}
-      array={[...array,...array2]}
-
+      // navigate={'Home'}
+      // Register={() => { }}
+      Allarray={[...array,...array2]}
+      setarray={setarray}
+      array={array}
     />
   )
 }
