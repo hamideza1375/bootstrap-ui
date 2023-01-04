@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { KeyboardAvoidingView, Pressable, View, Text, TextInput, Image, StyleSheet, ScrollView, Dimensions, Animated, Platform } from 'react-native'
-import { Input, Button, CheckBox } from '../Html'
+import { Input, Button, CheckBox, Swiper } from '../Html'
 import yub from '../../utils/yub'
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 const newObj = new Proxy({}, yub);
@@ -37,7 +37,7 @@ const Form = ({ webStyle = {}, nativeStyle = {}, timer = false, refInput, rand, 
   setorientation, setwidth, setheight,
   fIconLeft, fIconRight, eIconLeft, eIconRight, pIconLeft, pIconRight, cpIconLeft, cpIconRight,
   tIconLeft, tIconRight, prIconLeft, prIconRight, iIconLeft, iIconRight, imIconLeft, imIconRight, phIconLeft, phIconRight,
-  input, setinput, _input
+  input, setinput, _input,flexDirection
 }) => {
 
 
@@ -139,7 +139,7 @@ const Form = ({ webStyle = {}, nativeStyle = {}, timer = false, refInput, rand, 
     <ScrollView contentContainerStyle={[{ flexGrow: 1 }, contentContainerStyle]} style={[{ backgroundColor: bgcolor, borderRadius: 3, marginTop: mt }, Platform.OS === 'web' ? webStyle : nativeStyle]} >
 
       <View style={[styles.viewContainer, { paddingTop: top }, style]} >
-        <View style={[{ transform: [{ scaleY: sizeY }], padding: 10, paddingBottom: 25 }]}>
+        <View style={[{ transform: [{ scaleY: sizeY }], padding: 10, paddingBottom: 25 },flexDirection === 'row' && Platform.OS === 'web' ?{flexDirection: 'row', flexWrap: 'wrap'}:{}]}>
 
           {f &&
             <Frm
@@ -271,6 +271,7 @@ const Form = ({ webStyle = {}, nativeStyle = {}, timer = false, refInput, rand, 
 
           {i &&
             <Frm
+            multiline
               icon="info"
               p=" توضیحات "
               iconLeft={iIconLeft}
@@ -303,35 +304,43 @@ const Form = ({ webStyle = {}, nativeStyle = {}, timer = false, refInput, rand, 
           }
 
           {_input &&
-            <KeyboardAvoidingView behavior={"height"} style={{ height: 70, minHeight: 70, marginVertical: 30 }}>
-              <View style={[styles.viewInput, { minHeight: 90 }, { marginBottom: 5 }]} >
-                <Input
-                  textContentType="telephoneNumber"
-                  autoComplete="tel"
-                  icon="phone"
-                  keyboardType="phone-pad"
-                  value={input}
-                  p={'ادمین جدید'}
-                  onChangeText={(text) => setinput(text)}
-                  style={[styles.input, { paddingRight: 3 }]}
-                />
+            <KeyboardAvoidingView behavior={"height"} style={[{ height: 70, minHeight: 70, marginVertical: 10, marginHorizontal: 10,flexGrow:1  }]}>
+              <View style={[styles.viewInput, { minHeight: 90 }]} >
+                <Swiper>
+                  <Text style={[styles.textinput, { marginTop: 5 }]} ></Text>
+                  <Input
+                    textContentType="telephoneNumber"
+                    autoComplete="tel"
+                    icon="phone"
+                    keyboardType="phone-pad"
+                    value={input}
+                    placeholder={'ادمین جدید'}
+                    onChangeText={(text) => setinput(text)}
+                    style={[styles.input, { paddingRight: 3 }]}
+                  />
+                </Swiper>
               </View>
             </KeyboardAvoidingView>
 
           }
 
           {$code &&
-            <KeyboardAvoidingView behavior={"height"} style={{ height: 70, minHeight: 70, marginVertical: 30 }}>
-              <View style={[styles.viewInput, { minHeight: 90 }, { marginBottom: 5 }]} >
-                <Input
-                  m_icon="textsms"
-                  iconSize={30}
-                  keyboardType="phone-pad"
-                  value={code}
-                  p={'کد ورود'}
-                  onChangeText={(text) => setcode(text)}
-                  style={[styles.input, { paddingRight: 3 }]}
-                />
+            <KeyboardAvoidingView behavior={"height"} style={[{ height: 70, minHeight: 70, marginVertical: 10, marginHorizontal: 10, flexGrow:1  }]}>
+              <View style={[styles.viewInput, { minHeight: 90 }]} >
+
+                <Swiper>
+                  <Text style={[styles.textinput, { marginTop: 5 }]} ></Text>
+
+                  <Input
+                    m_icon="textsms"
+                    iconSize={30}
+                    keyboardType="phone-pad"
+                    value={code}
+                    placeholder={'کد ورود'}
+                    onChangeText={(text) => setcode(text)}
+                    style={[styles.input, { paddingRight: 3 }]}
+                  />
+                </Swiper>
               </View>
             </KeyboardAvoidingView>
           }
@@ -367,7 +376,7 @@ const Form = ({ webStyle = {}, nativeStyle = {}, timer = false, refInput, rand, 
           />}
 
           {ch &&
-            <View behavior={"height"} style={{ height: 35, minHeight: 35, marginTop: 10, justifyContent: 'center', marginTop: 15 }}>
+            <View behavior={"height"} style={{ height: 35, minHeight: 35, justifyContent: 'center', marginTop: 30, marginHorizontal:10 }}>
               <View style={{ marginVertical: 10 }} >
                 <View style={[styles.viewCheckbox, { flexGrow: .4, maxHeight: 20 }]}>
                   <CheckBox show={!checkText ? show : changeremember} setshow={!checkText ? setshow : setchangeremember} />
@@ -380,7 +389,7 @@ const Form = ({ webStyle = {}, nativeStyle = {}, timer = false, refInput, rand, 
 
           {c &&
             <>
-              <KeyboardAvoidingView behavior={"height"} style={{ height: 50, minHeight: 50, marginVertical: 8 }}>
+              <KeyboardAvoidingView behavior={"height"} style={{ height: 50, minHeight: 50, marginVertical: 8, marginHorizontal:10 }}>
                 <View style={[styles.viewCaptcha, { height: 28, alignItems: 'center' }]}>
 
                   <Image source={{ uri: `${host}/captcha.png/${rand}` }} style={styles.imageCaptcha} />
@@ -492,7 +501,7 @@ const Form = ({ webStyle = {}, nativeStyle = {}, timer = false, refInput, rand, 
             </View>
           }
 
-          <KeyboardAvoidingView behavior={"height"} style={{ height: 70, minHeight: 70, marginBottom: 15 }}>
+          <KeyboardAvoidingView behavior={"height"} style={{ height: 70, minHeight: 70, marginBottom: 15, width:'100%' }}>
             {btn && <Button
               onPressIn={() => {
                 setremember && setremember(changeremember ? (60000 * 60 * 24 * 365) : ('24h'))

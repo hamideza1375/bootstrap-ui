@@ -1,5 +1,5 @@
 import React from "react";
-import { Animated, Text, View } from "react-native";
+import { Animated, KeyboardAvoidingView, Pressable, Text, View } from "react-native";
 import { launchImageLibrary } from "react-native-image-picker";
 import { Input } from "./FormComponent";
 import Swiper from '../components/Swiper'
@@ -28,6 +28,7 @@ function InputImage({ imIconLeft,imIconRight,imageUrl,setImageUrl,_imageUrl,newO
   // }
  
     return (
+    <KeyboardAvoidingView behavior={"height"} style={[{ height: 70, minHeight: 70, marginVertical: 10,marginTop:7, marginHorizontal:10, flexGrow:1 }]}>
       <View style={{ minHeight: 70, height:70, marginVertical:12}}>
         <Animated.View style={[styles.viewInput, { minHeight: 90 }, { marginBottom: 5 }]} >
           <Swiper cansel={(imIconLeft || imIconRight) ? false : true} style={{ height: '100%', marginBottom: 20, paddingBottom: 20 }}
@@ -37,23 +38,24 @@ function InputImage({ imIconLeft,imIconRight,imageUrl,setImageUrl,_imageUrl,newO
             iconRight={imIconRight}
           >
             <Text style={[styles.textinput, { marginTop: 5 }]} >{p}</Text>
-            <Animated.View onTouchStart={pickImage} style={[styles.animatedBorder,
+            <Pressable onPress={pickImage} style={[styles.animatedBorder,
             _imageUrl && !img &&
             {borderWidth: 1.2, borderColor:'red'}]} >
               <Input
                 editable={false}
                 placeholder={p}
-                icon={icon}
+                m_icon={icon}
                 value={imageUrl.name}
                 style={styles.input}
               />
-            </Animated.View>
+            </Pressable>
             {_imageUrl && !img && <Text style={[styles.textinput, { color: 'red' }]} >
                 {newObj}
             </Text>}
           </Swiper>
         </Animated.View>
       </View>
+      </KeyboardAvoidingView>
     )
   }
   

@@ -20,7 +20,6 @@ import { Init, Span } from './Components/Html'
 // import Card2 from './ui/Card2'
 // import SearchBar from './ui/SearchBar'
 import Form from './ui/Form'
- 
 import { states, context } from './utils/context/contexts'
 import rtl from './utils/rtl'
 rtl()

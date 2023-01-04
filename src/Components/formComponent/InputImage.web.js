@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Animated, Text, View } from "react-native";
+import { Animated, KeyboardAvoidingView, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/dist/FontAwesome";
 import Swiper from '../components/Swiper'
 import { M_icon } from "../Html";
@@ -10,6 +10,9 @@ function InputImage({ imIconLeft,imIconRight,imageUrl,setImageUrl,_imageUrl,newO
 
 
     return (
+    <KeyboardAvoidingView behavior={"height"} style={[{ height: 70, minHeight: 70, marginVertical: 10,marginTop:7, marginHorizontal:10, flexGrow:1 }]}>
+
+
         <View style={{ height:70,minHeight:70,marginVertical:10 }}>
           <Animated.View style={[styles.viewInput, { minHeight: 90 }, { marginBottom: 5 }]} >
             <Swiper cansel={(imIconLeft || imIconRight) ? false : true} style={{  }}
@@ -17,7 +20,7 @@ function InputImage({ imIconLeft,imIconRight,imageUrl,setImageUrl,_imageUrl,newO
               styleLeftIcon={{ top: 37 }}
               iconLeft={imIconLeft}
               iconRight={imIconRight}
-            >
+              >
               <Text style={[styles.textinput, { marginTop: 5 }]} > {p}</Text>
               <Animated.View style={[styles.animatedBorder,
               _imageUrl && !img &&
@@ -40,7 +43,7 @@ function InputImage({ imIconLeft,imIconRight,imageUrl,setImageUrl,_imageUrl,newO
                 accept={`${accept}/*`}
                 placeholder={p}
                 onChange={(event)=>{setImageUrl(event.target.files[0])}}
-                style={{opacity:0, width:'100%',minHeight:'100%'}}
+                style={{opacity:0, width:'100%',minHeight:'100%',boxSizing:'border-box'}}
                 />
                 </View>
               </Animated.View>
@@ -50,6 +53,7 @@ function InputImage({ imIconLeft,imIconRight,imageUrl,setImageUrl,_imageUrl,newO
             </Swiper>
           </Animated.View>
         </View>
+                </KeyboardAvoidingView>
     )
   }
   

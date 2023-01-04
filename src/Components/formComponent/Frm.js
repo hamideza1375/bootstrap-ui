@@ -44,7 +44,7 @@ export default function ({autoFocus=false,multiline=false,m_icon,iconPress,secur
  
  
   return (
-    <KeyboardAvoidingView behavior={"height"} style={[{ height: 70, minHeight: 70, marginVertical: 10, },multiline && {height: 130,minHeight: 130}]}>
+    <KeyboardAvoidingView behavior={"height"} style={[{ height: 70, minHeight: 70, marginVertical: 10, marginHorizontal:10, flexGrow:1  },multiline && {height: 130,minHeight: 130}]}>
       <Animated.View style={[styles.viewInput, { minHeight: 90 },multiline && {height: 120,minHeight: 120}, { marginBottom: 5 }]} >
         <Swiper
           cansel={(iconLeft || iconRight) ? false : true}
@@ -62,7 +62,7 @@ export default function ({autoFocus=false,multiline=false,m_icon,iconPress,secur
               keyboardType={keyboardType}
               icon={icon}
               m_icon={m_icon}
-              p={p}
+              placeholder={p}
               value={state}
               onChangeText={(text) => setState(text)}
               onBlur={() => { setBlur(true);  !yub && fadeOut() }}
