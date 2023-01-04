@@ -8,6 +8,7 @@ export { default as B_icon } from './components/B_icon'
 export { default as Badge } from './components/Badge'
 export { default as Button } from './components/Button'
 export { default as Card } from './components/Card'
+export { default as Card2 } from './components/Card2'
 export { default as Dropdown } from './components/Dropdown'
 export { default as Form } from './components/Form'
 export { default as List } from './components/List'
@@ -23,7 +24,7 @@ export { Textarea, Input, CheckBox } from './formComponent/FormComponent'
 import setStyleRef from './classToStyle/setClassToStyle';
 
 export const Component = React.forwardRef((props, ref) => {
-  const { flatlist = false, land, port, col1, col2, col3, col4, sh = {}, scale = 1, rotate = 0, br, fd, Component, p, pt, pb, pl, pr, pv, ph, h, w, m, mt, mb, ml, mr, mv, mh, color, bgcolor, border = [], fg, f, ta, as, fm, fs, bbc, btc, blc, brc, btw, bbw, blw, brw, btr, bbr, blr, brr, minw, maxw, minh, maxh, wb, ovflw, ovfl, ovflx, ovfly, lh, d, opc, pos, z, t, b, r, l, fw, tdl, tds, tdc, shc, sho, shr, shoff, tshc, tsho, tshr, tshoff } = props;
+  const { jc,ai,flatlist = false, land, port, col1, col2, col3, col4, sh = {}, scale = 1, rotate = 0, br, fd, Component, p, pt, pb, pl, pr, pv, ph, h, w, m, mt, mb, ml, mr, mv, mh, color, bgcolor, border = [], fg, f, ta, as, fm, fs, bbc, btc, blc, brc, btw, bbw, blw, brw, btr, bbr, blr, brr, minw, maxw, minh, maxh, wb, ovflw, ovfl, ovflx, ovfly, lh, d, opc, pos, z, t, b, r, l, fw, tdl, tds, tdc, shc, sho, shr, shoff, tshc, tsho, tshr, tshoff } = props;
   const [innerHTML, setinnerHTML] = React.useState(null);
   const [uri, seturi] = React.useState(null)
   let stl, stl2,
@@ -70,7 +71,7 @@ export const Component = React.forwardRef((props, ref) => {
         marginVertical: mv, margin: m, marginTop: mt, marginBottom: mb,
         marginLeft: ml, marginRight: mr, marginHorizontal: mh,
         backgroundColor: bgcolor, borderWidth: border[0], borderColor: border[1],
-        height: h, width: w,
+        height: h, width: w, justifyContent:jc, alignItems:ai
       },
       stl, stl2, col, orientation
     ]}
@@ -78,7 +79,6 @@ export const Component = React.forwardRef((props, ref) => {
      ref={(e) => { setStyleRef(props, e, ref, setinnerHTML, flatlist, seturi); }}
   >{innerHTML ? ((typeof innerHTML === 'string') ? <Text onPress={props.onClick}>{innerHTML}</Text> : innerHTML) : (typeof props.children === 'string') ? <Text onPress={props.onClick}>{props.children}</Text> : props.children}</Component>;
 });
-
 
 export const _text = React.forwardRef((props, ref) => {
   const { land, port, col1, col2, col3, col4, e, tsh = {}, p, pt, pb, pl, pr, pv, ph, h, w, m, mt, mb, ml, mr, mv, mh, color, bgcolor, border = [], fg, f, ta, as, fm, fs, bbc, btc, blc, brc, btw, bbw, blw, brw, btr, bbr, blr, brr, minw, maxw, minh, maxh, wb, ovflw, ovfl, ovflx, ovfly, lh, d, opc, pos, z, t, b, r, l, fw, tdl, tds, tdc, shc, sho, shr, shoff, tshc, tsho, tshr, tshoff, scale = null, rotate = null } = props;

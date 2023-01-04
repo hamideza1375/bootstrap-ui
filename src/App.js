@@ -6,7 +6,6 @@ import Slider from './ui/Slider'
 // import Button from './ui/Button'
 // import B_icon from './ui/B_icon'
 // import Badge from './ui/Badge'
-// import Card from './ui/Card'
 // import Dropdown from './ui/Dropdown'
 // import Input from './ui/Input'
 // import LinearGradient from './ui/LinearGradient'
@@ -17,6 +16,8 @@ import Slider from './ui/Slider'
 // import Switch from './ui/Switch'
 // import Swiper from './ui/Swiper'
 // import Table from './ui/Table'
+// import Card from './ui/Card'
+import Card2 from './ui/Card2'
  
 import { states, context } from './utils/context/contexts'
 
@@ -27,12 +28,11 @@ const App = () => {
 
     <NavigationContainer>
       <Init ref={(e) => allState.set$(e)} id={'s'} />
-      <Slider {...allState} />
+      {/* <Slider {...allState} /> */}
       {/* <_ScrollSlider {...allState} /> */}
       {/* <Button {...allState} /> */}
       {/* <B_icon {...allState} /> */}
       {/* <Badge {...allState} /> */}
-      {/* <Card {...allState} /> */}
       {/* <Dropdown {...allState} /> */}
       {/* <Input {...allState} /> */}
       {/* <LinearGradient {...allState} /> */}
@@ -43,6 +43,8 @@ const App = () => {
       {/* <Switch {...allState} /> */}
       {/* <Swiper {...allState} /> */}
       {/* <Table {...allState} /> */}
+      {/* <Card {...allState} /> */}
+      <Card2 {...allState} />
     </NavigationContainer>
     </Span>
   )
