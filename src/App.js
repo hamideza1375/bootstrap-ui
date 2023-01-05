@@ -30,7 +30,7 @@ rtl()
 
 const Home = ({ navigation }) => {
   return (
-    <Scroll style={{ height: '100vh', width: '100%' }} >
+    <Scroll webStyle={{ height: '100vh', width: '100%' }} natyveStyle={{ height: '100%', width: '100%' }} >
       <Btn onClick={() => { navigation.navigate('Slider') }} >Slider</Btn>
       <Btn onClick={() => { navigation.navigate('ScrollSlider') }} >ScrollSlider</Btn>
       <Btn onClick={() => { navigation.navigate('Button') }} >Button</Btn>
@@ -91,6 +91,8 @@ const App = () => {
           <Tab.Screen name="Table" children={(props) => <Table {...props} {...allState} />} />
           <Tab.Screen name="Card" children={(props) => <Card {...props} {...allState} />} />
           <Tab.Screen name="Card2" children={(props) => <Card2 {...props} {...allState} />} />
+          <Tab.Screen name="SearchBar" children={(props) => <SearchBar {...props} {...allState} />} />
+          
         </Tab.Navigator  >
       </NavigationContainer>
     </Span>

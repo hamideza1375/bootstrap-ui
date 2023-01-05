@@ -22,7 +22,7 @@ function SearchInput(p) {
   return (
     <SearchBar
       // icon='home'
-      // src={require('../assets/images/a1.jpg')}
+      src={require('../assets/images/a1.jpg')}
       // navigate={'Home'}
       // Register={() => { }}
       Allarray={[...array,...array2]}
