@@ -16,7 +16,7 @@ function ScrollSlider(p) {
 
   const open = () => {
     if (scroll2) {
-      { p.$ && p.$.id(p.id).scrollTo({ x: count, y: 0, animated: true }); }
+      { p.$.id(p.id) && p.$.id(p.id).scrollTo({ x: count, y: 0, animated: true }); }
       count += 150
     }
   };
@@ -25,7 +25,7 @@ function ScrollSlider(p) {
   if (!scroll2) { clearInterval(interval) }
 
   if (p.width !== width) {
-    p.$ && p.$.id(p.id).scrollTo({ x: 0, y: 0, animated: true });
+    p.$.id(p.id) && p.$.id(p.id).scrollTo({ x: 0, y: 0, animated: true });
     count = 1
     interval && clearInterval(interval)
   }

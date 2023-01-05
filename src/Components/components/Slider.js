@@ -12,7 +12,7 @@ function Slider(p) {
   const [interval, setinterval] = useState(true)
 
   const open = () => {
-    { p.$ && p.$.id(p.id).scrollTo({ x: p.width * count, y: 0, animated: true }); }
+    { p.$.id(p.id) && p.$.id(p.id).scrollTo({ x: p.width * count, y: 0, animated: true }); }
     if (count === 1) { plus = true; minus = false }
     if (count === 7) { minus = true; plus = false }
     if (minus) { count = count - 1 }
@@ -21,17 +21,17 @@ function Slider(p) {
 
   const right = () => {
     if (count !== 0) count = count - 1
-    p.$ && p.$.id(p.id).scrollTo({ x: p.width * count, y: 0, animated: true });
+    p.$.id(p.id) && p.$.id(p.id).scrollTo({ x: p.width * count, y: 0, animated: true });
   };
 
   const left = () => {
     if (count !== 7) count += 1
-    p.$ && p.$.id(p.id).scrollTo({ x: p.width * count, y: 0, animated: true });
+    p.$.id(p.id) && p.$.id(p.id).scrollTo({ x: p.width * count, y: 0, animated: true });
   };
 
 
   if (p.width !== width) {
-    p.$ && p.$.id(p.id).scrollTo({ x: 0, y: 0, animated: true });
+    p.$.id(p.id) && p.$.id(p.id).scrollTo({ x: 0, y: 0, animated: true });
     count = 1
     interval && clearInterval(interval)
   }

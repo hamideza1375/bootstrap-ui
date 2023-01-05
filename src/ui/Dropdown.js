@@ -12,9 +12,10 @@ function _Dropdown() {
 
       <Span mb={30} >
         <Dropdown
-          a_icon='paperclip'
+          // a_icon='paperclip'
           // m_icon='paperclip'
           // icon='paperclip'
+          child={<Span mr={3} mt={1} >child</Span>}
           // iconFalse
           top
           color='#000'
