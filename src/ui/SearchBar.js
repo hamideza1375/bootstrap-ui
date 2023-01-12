@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SearchBar } from '../Components/Html'
+import { P, SearchBar } from '../Components/Html'
 
 function SearchInput(p) {
 
@@ -19,16 +19,33 @@ function SearchInput(p) {
  
 
 
-  return (
+  p.useEffect(() => {
+    p.navigation.setOptions({ header: () => 
     <SearchBar
-      // icon='home'
-      src={require('../assets/images/a1.jpg')}
-      // navigate={'Home'}
-      // Register={() => { }}
-      Allarray={[...array,...array2]}
-      setarray={setarray}
-      array={array}
-    />
+     Register={p.width > 395 ? true : false}
+      icon={'filter'} iconPress={() => { p.setshowFilterModal(true) }} 
+      array={p.array} 
+      setarray={p.setarray}
+       {...p} 
+       bgcolor={'#e7ed'}
+        logoPress={() => p.navigation.navigate('Home')} row={
+      <Span fd='row' mt={19} >
+        <P fs={10} mh={7} >موبایل تبلت</P>
+        <P fs={10} mh={7} >هدفون هنزفیری</P>
+        <P fs={10} mh={7} >لوازم جانبی</P>
+      </Span>} src={require('../../assets/images/logo.png')} /> });
+}, [])
+
+  return (
+
+    <SearchBar 
+    bgcolor='#f9f' 
+    Register={p.width > 395 ?true:false} 
+    icon={'filter'} 
+    src={p.width > 460 ?require('../assets/images/logo.png'):false}
+     iconPress={()=>{p.setshowFilterModal(true)}} 
+     array={p.array} 
+     setarray={p.setarray} {...p}/>
   )
 }
 export default SearchInput
