@@ -2,7 +2,6 @@ import React from 'react';
 import { View, TextInput, Platform } from 'react-native';
 import _icon from 'react-native-vector-icons/dist/FontAwesome';
 import Micon from 'react-native-vector-icons/dist/MaterialIcons';
-import setStyleRef from '../classToStyle/setClassToStyle';
 
 
 
@@ -15,9 +14,8 @@ export const Textarea = React.forwardRef((props, ref) => {
 });
 
 
-
 export const Input = React.forwardRef((props, ref) => {
-  const { dropdown, onFocus, $input, textId, fg, f, ta, dr = 'rtl', as, fs, p, pt, pb, pl, pr, pv, ph, h = 50, w, m, mt, mb, ml, mr, mv, mh, color = '#222', bgcolor = '#fff', border = [.3], pColor = '#777', } = props;
+  const { fg, f, ta, dr = 'rtl', as, fs, p, pt, pb, pl, pr, pv, ph, h = 50, w, m, mt, mb, ml, mr, mv, mh, color = '#222', bgcolor = '#fff', border = [.3], pColor = '#777', } = props;
   return (
     <View
       style={[{
@@ -30,20 +28,7 @@ export const Input = React.forwardRef((props, ref) => {
         backgroundColor: bgcolor,
       }, props.style]}
       ref={e => { if (e) { e.className = Array.isArray(props.class) ? (e.className + ' ' + props.class[0] + ' ' + props.class[1]) : (e.className + ' ' + props.class); }; ref && ref(e); }}>
-      <View style={{top:19,right:60,position:'absolute'}} >
-
-        {dropdown}
-      </View>
-
-      <TextInput
-        onFocus={onFocus}
-        ref={(e) => {
-
-          $input?.set(textId, e);
-
-        }
-        }
-        placeholderTextColor={pColor} onPress={props.onClick} autoCapitalize='none' autoCorrect={false} spellCheck={true} placeholder={props.p} {...props} style={[{ width: '84%', flexGrow: 1, textAlign: "right", fontSize: fs, padding: 8, paddingRight: 10, height: '100%', color: props.color ? props.color : '#222', }, props.className, props.textStyle]} />
+      <TextInput placeholderTextColor={pColor} onPress={props.onClick} autoCapitalize='none' autoCorrect={false} spellCheck={true} placeholder={props.p} {...props} style={[{ width: '84%', flexGrow: 1, textAlign: "right", fontSize: fs, padding: 8, paddingRight: 10, height: '100%', color: props.color ? props.color : '#222', }, props.className, props.textStyle]} />
       {props.icon && <View onStartShouldSetResponder={props.iconPress} style={[{ width: '15%', maxWidth: 70, textAlign: 'center', borderColor: border[1], height: '100%', justifyContent: 'center', alignItems: 'center' }, props.textStyle, dr === 'rtl' ? { borderRightWidth: border[0] } : { borderLeftWidth: border[0] }]}><_icon style={props.iconPress && Platform.OS === 'web' && { cursor: 'pointer' }} name={props.icon} size={props.iconSize ? props.iconSize : 22} color={props.iconColor ? props.iconColor : "#333"} /></View>}
       {props.m_icon && <View onStartShouldSetResponder={props.iconPress} style={[{ width: '15%', maxWidth: 70, textAlign: 'center', borderColor: border[1], height: '100%', justifyContent: 'center', alignItems: 'center' }, props.textStyle, dr === 'rtl' ? { borderRightWidth: border[0] } : { borderLeftWidth: border[0] }]}><Micon style={props.iconPress && Platform.OS === 'web' && { cursor: 'pointer' }} name={props.m_icon} size={props.iconSize ? props.iconSize : 22} color={props.iconColor ? props.iconColor : "#333"} /></View>}
     </View>);

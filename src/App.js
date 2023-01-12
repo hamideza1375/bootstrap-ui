@@ -20,6 +20,9 @@ import Card from './ui/Card'
 import Card2 from './ui/Card2'
 import SearchBar from './ui/SearchBar'
 import Form from './ui/Form'
+import VirtualList from './ui/VirtualList'
+import Flatlist from './ui/FlatList'
+
 import { states, context } from './utils/context/contexts'
 import rtl from './utils/rtl'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
@@ -50,6 +53,8 @@ const Home = ({ navigation }) => {
       <Btn onClick={() => { navigation.navigate('Card2') }} >Card2</Btn>
       <Btn onClick={() => { navigation.navigate('SearchBar') }} >SearchBar</Btn>
       <Btn onClick={() => { navigation.navigate('Form') }} >Form</Btn>
+      <Btn onClick={() => { navigation.navigate('VirtualList') }} >VirtualList</Btn>
+      <Btn onClick={() => { navigation.navigate('Flatlist') }} >Flatlist</Btn>
     </Scroll>
   )
 }
@@ -91,7 +96,8 @@ const App = () => {
           <Tab.Screen name="Table" children={(props) => <Table {...props} {...allState} />} />
           <Tab.Screen name="Card" children={(props) => <Card {...props} {...allState} />} />
           <Tab.Screen name="Card2" children={(props) => <Card2 {...props} {...allState} />} />
-          <Tab.Screen name="SearchBar" children={(props) => <SearchBar {...props} {...allState} />} />
+          <Tab.Screen name="VirtualList" children={(props) => <VirtualList {...props} {...allState} />} />
+          <Tab.Screen name="Flatlist" children={(props) => <Flatlist {...props} {...allState} />} />
           
         </Tab.Navigator  >
       </NavigationContainer>

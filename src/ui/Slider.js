@@ -3,7 +3,7 @@ import { Div, Slider } from '../Components/Html'
 
 const _Slider = (p) => {
   return (
-    <Slider id='slider' {...p} onClick={() => { alert(8) }}
+    <Slider {...p} onClick={() => { alert(8) }}
       img1={require('../assets/images/a1.jpg')}
       img2={require('../assets/images/a2.jpg')}
       img3={require('../assets/images/a3.jpg')}

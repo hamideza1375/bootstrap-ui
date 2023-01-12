@@ -3,14 +3,14 @@ import { View, Text, Image, Pressable, Platform } from 'react-native';
 
 function Card(prop) {
 
-  const { style, header, body, footer, bgcolor, color, alert, border = [1], img, dr = 'rtl', imageStyle, headerRow , footerRow} = prop
+  const { style, header, body, footer, bgcolor, color, alert, border=[1], img, dr = 'rtl', imageStyle, headerRow } = prop
 
   return !img ? ((
     !alert ?
       <Pressable
         {...prop}
         style={[{
-          borderWidth: border[0], borderRadius: 5,
+          borderWidth:border[0], borderRadius: 5,
           borderColor:
             !border[1] && (
               !bgcolor && '#fbb' ||
@@ -62,37 +62,6 @@ function Card(prop) {
               </Text>
             </View>
           }
-
-          {headerRow &&
-            <View style={[{
-              paddingHorizontal: 5, paddingVertical: 12, width: '100%'
-              //  !
-
-            }, dr === 'rtl' ? { alignSelf: 'flex-end' } : { alignSelf: 'flex-start' }]}>
-              <View
-                style={[{
-                  color:
-                    !color ?
-
-                      bgcolor ?
-                        (bgcolor == 'white') && 'black' ||
-                        (bgcolor == 'silver') && 'black' ||
-                        (color) && color ||
-                        'white'
-                        :
-                        "#333"
-                      :
-                      color,
-                  fontWeight: '700',
-                  fontSize: 15,
-                  width: '100%',
-
-                }, dr === 'rtl' ? { textAlign: Platform.OS !== 'web' ? 'right' : 'left' } : { textAlign: Platform.OS === 'web' ? 'right' : 'left' }]} >
-                {headerRow}
-              </View>
-            </View>
-          }
-
           {body &&
             <View style={{ paddingVertical: 12, paddingHorizontal: 5, width: '100%' }}>
               <Text style={[{
@@ -116,9 +85,6 @@ function Card(prop) {
           {footer &&
             <View style={[{ paddingBottom: 5, color, width: '100%' }]}><Text style={{ textAlign: 'center' }} >{footer}</Text></View>
           }
-          {footerRow &&
-            <View style={[{ paddingBottom: 5, color, width: '100%' }]}>{footerRow}</View>
-          }
         </View>
       </Pressable>
       :
@@ -126,7 +92,7 @@ function Card(prop) {
         <Pressable
           {...prop}
           style={[{
-            borderWidth: border[0], borderRadius: 5,
+            borderWidth:border[0], borderRadius: 5,
             borderColor:
               !border[1] && (
                 !bgcolor && '#fdb' ||
@@ -167,37 +133,6 @@ function Card(prop) {
                 </Text>
               </View>
             }
-
-            {headerRow &&
-              <View style={[{
-                paddingHorizontal: 5, paddingVertical: 12, width: '100%'
-                //  !
-
-              }, dr === 'rtl' ? { alignSelf: 'flex-end' } : { alignSelf: 'flex-start' }]}>
-                <View
-                  style={[{
-                    color:
-                      !color ?
-
-                        bgcolor ?
-                          (bgcolor == 'white') && 'black' ||
-                          (bgcolor == 'silver') && 'black' ||
-                          (color) && color ||
-                          'white'
-                          :
-                          "#333"
-                        :
-                        color,
-                    fontWeight: '700',
-                    fontSize: 15,
-                    width: '100%',
-
-                  }, dr === 'rtl' ? { textAlign: Platform.OS !== 'web' ? 'right' : 'left' } : { textAlign: Platform.OS === 'web' ? 'right' : 'left' }]} >
-                  {headerRow}
-                </View>
-              </View>
-            }
-
             {body &&
               <View style={{ paddingVertical: 12, paddingHorizontal: 5, width: '100%' }}>
                 <Text style={[{
@@ -211,9 +146,6 @@ function Card(prop) {
             {footer &&
               <View style={[{ paddingBottom: 5, color, width: '100%' }]}><Text style={{ textAlign: 'center' }} >{footer}</Text></View>
             }
-            {footerRow &&
-              <View style={[{ paddingBottom: 5, color, width: '100%' }]}>{footerRow}</View>
-            }
           </View>
         </Pressable>
       )
@@ -225,12 +157,20 @@ function Card(prop) {
     :
     (
 
+
+
+
+
+
+
+
+
       (
         !alert ?
           <Pressable
             {...prop}
             style={[{
-              borderWidth: border[0], borderRadius: 5, minHeight: 115, width: '100%', position: 'relative',
+              borderWidth:border[0], borderRadius: 5, minHeight: 115, width: '100%', position: 'relative',
               borderColor:
                 !border[1] && (
                   !bgcolor && '#fbb' ||
@@ -261,8 +201,8 @@ function Card(prop) {
               {header &&
                 <View style={[{
                   paddingHorizontal: 5, paddingVertical: 12, width: '70%'
-                  //  !
-                }, dr === 'rtl' ? { alignSelf: 'flex-end' } : { alignSelf: 'flex-start' }]}               >
+              //  !
+            }, dr === 'rtl' ? { alignSelf: 'flex-end' } : { alignSelf: 'flex-start' }]}               >
                   <Text
                     style={[{
                       color:
@@ -281,7 +221,7 @@ function Card(prop) {
                       fontSize: 15,
                       width: '100%',
                       textAlign: 'left'
-                    }, dr === 'rtl' ? { textAlign: Platform.OS !== 'web' ? 'right' : 'left' } : { textAlign: Platform.OS === 'web' ? 'right' : 'left' }]}>
+                    }, dr === 'rtl' ? { textAlign:Platform.OS !== 'web' ? 'right':'left' } : { textAlign:Platform.OS === 'web' ? 'right':'left' }]}>
                     {header}
                   </Text>
                 </View>
@@ -293,9 +233,9 @@ function Card(prop) {
               {headerRow &&
                 <View style={[{
                   paddingHorizontal: 5, paddingVertical: 12, width: '70%'
-                  //  !
-
-                }, dr === 'rtl' ? { alignSelf: 'flex-end' } : { alignSelf: 'flex-start' }]}>
+              //  !
+              
+              }, dr === 'rtl' ? { alignSelf:'flex-end' } : { alignSelf:'flex-start' }]}>
                   <View
                     style={[{
                       color:
@@ -313,8 +253,8 @@ function Card(prop) {
                       fontWeight: '700',
                       fontSize: 15,
                       width: '100%',
-
-                    }, dr === 'rtl' ? { textAlign: Platform.OS !== 'web' ? 'right' : 'left' } : { textAlign: Platform.OS === 'web' ? 'right' : 'left' }]} >
+                      
+                    }, dr === 'rtl' ? { textAlign:Platform.OS !== 'web' ? 'right':'left' } : { textAlign:Platform.OS === 'web' ? 'right':'left' }]} >
                     {headerRow}
                   </View>
                 </View>
@@ -344,9 +284,9 @@ function Card(prop) {
               {body &&
                 <View style={[{
                   paddingHorizontal: 5, paddingVertical: 12, width: '79.4%'
-                  //  !
-                }, dr === 'rtl' ? { alignSelf: 'flex-end' } : { alignSelf: 'flex-start' }]}
-                >
+              //  !
+            }, dr === 'rtl' ? { alignSelf:'flex-end' } : { alignSelf:'flex-start' }]}
+                           >
                   <Text style={[{
                     color:
                       !color ?
@@ -360,7 +300,7 @@ function Card(prop) {
                           "#333"
                         :
                         color,
-                  }, dr === 'rtl' ? { textAlign: Platform.OS !== 'web' ? 'right' : 'left' } : { textAlign: Platform.OS === 'web' ? 'right' : 'left' }]} >
+                  }, dr === 'rtl' ? { textAlign:Platform.OS !== 'web' ? 'right':'left' } : { textAlign:Platform.OS === 'web' ? 'right':'left' }]} >
                     {body}
                   </Text>
                 </View>
@@ -380,7 +320,7 @@ function Card(prop) {
             <Pressable
               {...prop}
               style={[{
-                borderWidth: border[0], borderRadius: 5, minHeight: 115, width: '100%', position: 'relative',
+                borderWidth:border[0], borderRadius: 5, minHeight: 115, width: '100%', position: 'relative',
                 borderColor:
                   !border[1] && (
                     !bgcolor && '#fdb' ||
@@ -418,7 +358,7 @@ function Card(prop) {
                         fontWeight: '700',
                         fontSize: 15,
                         width: '100%',
-                      }, dr === 'rtl' ? { textAlign: Platform.OS !== 'web' ? 'right' : 'left' } : { textAlign: Platform.OS === 'web' ? 'right' : 'left' }]} >
+                      }, dr === 'rtl' ? { textAlign:Platform.OS !== 'web' ? 'right':'left' } : { textAlign:Platform.OS === 'web' ? 'right':'left' }]} >
                       {header}
                     </Text>
                   </View>
@@ -438,7 +378,7 @@ function Card(prop) {
                         fontWeight: '700',
                         fontSize: 15,
                         width: '100%',
-                      }, dr === 'rtl' ? { textAlign: Platform.OS !== 'web' ? 'right' : 'left' } : { textAlign: Platform.OS === 'web' ? 'right' : 'left' }]} >
+                      }, dr === 'rtl' ? { textAlign:Platform.OS !== 'web' ? 'right':'left' } : { textAlign:Platform.OS === 'web' ? 'right':'left' }]} >
                       {headerRow}
                     </View>
                   </View>
@@ -473,7 +413,7 @@ function Card(prop) {
                     <Text style={[{
                       color:
                         !color ? 'black' : color,
-                    }, dr === 'rtl' ? { textAlign: Platform.OS !== 'web' ? 'right' : 'left' } : { textAlign: Platform.OS === 'web' ? 'right' : 'left' }]} >
+                      }, dr === 'rtl' ? { textAlign:Platform.OS !== 'web' ? 'right':'left' } : { textAlign:Platform.OS === 'web' ? 'right':'left' }]} >
                       {body}
                     </Text>
                   </View>

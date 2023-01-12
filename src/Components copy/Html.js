@@ -21,13 +21,11 @@ export { default as Table } from './components/Table'
 export { default as Slider } from './components/Slider'
 export { default as ScrollSlider } from './components/ScrollSlider'
 export { default as SearchBar } from './components/SearchBar'
-export { Textarea,Input, CheckBox } from './formComponent/FormComponent'
-// import { Input as _Input } from './formComponent/FormComponent'
-
+export { Textarea, Input, CheckBox } from './formComponent/FormComponent'
 import setStyleRef from './classToStyle/setClassToStyle';
 
 export const Component = React.forwardRef((props, ref) => {
-  const { jc,ai,flatlist = false, land, port, col1, col2, col3, col4, sh = {}, scale = 1, rotate = 0, br, fd, Component, p, pt, pb, pl, pr, pv, ph, h, w, m, mt, mb, ml, mr, mv, mh, color, bgcolor, border = [],bb,bt, fg, f, ta, as, fm, fs, bbc, btc, blc, brc, btw, bbw, blw, brw, btr, bbr, blr, brr, minw, maxw, minh, maxh, wb, ovflw, ovfl, ovflx, ovfly, lh, d, opc, pos, z, t, b, r, l, fw, tdl, tds, tdc, shc, sho, shr, shoff, tshc, tsho, tshr, tshoff } = props;
+  const { jc,ai,flatlist = false, land, port, col1, col2, col3, col4, sh = {}, scale = 1, rotate = 0, br, fd, Component, p, pt, pb, pl, pr, pv, ph, h, w, m, mt, mb, ml, mr, mv, mh, color, bgcolor, border = [], fg, f, ta, as, fm, fs, bbc, btc, blc, brc, btw, bbw, blw, brw, btr, bbr, blr, brr, minw, maxw, minh, maxh, wb, ovflw, ovfl, ovflx, ovfly, lh, d, opc, pos, z, t, b, r, l, fw, tdl, tds, tdc, shc, sho, shr, shoff, tshc, tsho, tshr, tshoff } = props;
   const [innerHTML, setinnerHTML] = React.useState(null);
   const [uri, seturi] = React.useState(null)
   let stl, stl2,
@@ -60,7 +58,7 @@ export const Component = React.forwardRef((props, ref) => {
     contentContainerStyle={[props.ccStyle, props.contentContainerStyle, Platform.OS !== 'web' && props.containClass]}
     imageStyle={[props.imageStyle, Platform.OS !== 'web' && props.containClass]}
     style={[
-      { flexWrap:fw,
+      {
         shadowRadius: sh.r, shadowOpacity: sh.o, shadowColor: sh.c, shadowOffset: sh.of,
         transform: [{ scale }, { rotate: rotate + 'deg' }],
         borderTopWidth: btw, borderRadius: br,
@@ -84,7 +82,7 @@ export const Component = React.forwardRef((props, ref) => {
 });
 
 export const _text = React.forwardRef((props, ref) => {
-  const { land, port, col1, col2, col3, col4, e, tsh = {}, p, pt, pb, pl, pr, pv, ph, h, w, m, mt, mb, ml, mr, mv, mh, color, bgcolor, border = [], fg, f, ta, as, fm, fs=13, bbc, btc, blc, brc, btw, bbw, blw, brw, btr, bbr, blr, brr, minw, maxw, minh, maxh, wb, ovflw, ovfl, ovflx, ovfly, lh, d, opc, pos, z, t, b, r, l, fw, ff='IRANSansWeb', tdl, tds, tdc, shc, sho, shr, shoff, tshc, tsho, tshr, tshoff, scale = null, rotate = null } = props;
+  const { land, port, col1, col2, col3, col4, e, tsh = {}, p, pt, pb, pl, pr, pv, ph, h, w, m, mt, mb, ml, mr, mv, mh, color, bgcolor, border = [], fg, f, ta, as, fm, fs, bbc, btc, blc, brc, btw, bbw, blw, brw, btr, bbr, blr, brr, minw, maxw, minh, maxh, wb, ovflw, ovfl, ovflx, ovfly, lh, d, opc, pos, z, t, b, r, l, fw, tdl, tds, tdc, shc, sho, shr, shoff, tshc, tsho, tshr, tshoff, scale = null, rotate = null } = props;
   const [innerHTML, setinnerHTML] = React.useState(null);
   let stl,
   _col ={},
@@ -122,7 +120,7 @@ export const _text = React.forwardRef((props, ref) => {
       marginVertical: mv, margin: m, marginTop: mt, marginBottom: mb,
       marginLeft: ml, marginRight: mr, marginHorizontal: mh,
       backgroundColor: bgcolor, borderWidth: border[0], borderColor: border[1],
-      height: h, width: w, fontFamily: ff, fontSize: fs, fontWeight: fw, color,
+      height: h, width: w, fontFamily: fm, fontSize: fs, fontWeight: fw, color,
     },
       stl, col, orientation
     ]}
@@ -135,11 +133,6 @@ export const Init = React.forwardRef((props, ref) => {
   return <_text ref={ref} style={{ width: 0, height: 0, padding: 0, margin: 0 }} />
 })
 
-
-
-// export const Input = (props) => <Component {...props} Component={_Input} />
-
-
 export const Container = (props) => <Component initalClass={Platform.OS === 'web' ? s.ContainerWeb : s.Container} {...props} Component={View} />
 
 export const Div = (props) => <Component initalClass={s.div} {...props} Component={View} />
@@ -148,14 +141,7 @@ export const Row = (props) => <Component initalClass={s.row} {...props} Componen
 
 export const Span = (props) => <Component {...props} Component={View} />
 
-export const Press = (props) => <Component onPress={props.onClick} {...props} style={[props.onClick && Platform.OS === 'web' && { cursor: 'pointer' }, props.style]} Component={Pressable} />
-
-export const PressView = (props) => 
-Platform.OS === 'web'?
-<Component onPress={props.onClick} {...props} style={[props.onClick && Platform.OS === 'web' && { cursor: 'pointer' }, props.style]} Component={Pressable} />
-:
-<Component onTouchEnd={props.onClick} {...props} Component={View} /> 
-
+export const Press = (props) => <Component onPress={props.onClick} {...props} Component={Pressable} />
 
 export const ImgBackground = (props) => <Component source={props.src} {...props} Component={ImageBackground} />
 
@@ -177,7 +163,6 @@ export const FlatList = (props) => {
   if (width > 1100) column = colomn4
   return (
    <Component flatlist={true} {...props}
-    keyExtractor={item => item.id}
     numColumns={props.numColumns?props.numColumns:column}
     key={props.numColumns?props.numColumns:column}
     Component={_FlatList}
@@ -185,10 +170,7 @@ export const FlatList = (props) => {
   )
 }
 
-
 export const FlatListHorizontal = (props) => <Component flatlist={true} {...props} horizontal={true} Component={_FlatList} />
-
-export const Vlist = (props) => <VirtualizedList keyExtractor={item => item.id} getItemCount={(data) => data.length} getItem={(data, index) => (data[index])} {...props}/>
 
 export const H1 = (props) => <_text {...props} initalClass={s.h1} />
 
